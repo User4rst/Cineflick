@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Efecto de movimiento lateral con imágenes de fondo y filtro</title>
+<style>
+    body {
+    margin: 0;    
+    padding: 0;
+     background-image: url('https://i.postimg.cc/PfQKN2fb/Screenshot-20240524065858-3.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+     animation: fadeIn 2s forwards;
+     
+}
+    
+  .container {
+    width: 100%;
+    height: 260px;
+    border: 1px solid black;
+    overflow: hidden;
+    position: relative;
+    touch-action: pan-y; /* Permitir desplazamiento vertical con los dedos */
+  }
+  
+  .content {
+    display: flex;
+    width: 200%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    transition: left 0.5s ease; /* Transición suave de movimiento */
+    touch-action: pan-x; /* Permitir desplazamiento horizontal con los dedos */
+  }
+
+  .content > div {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .content > div > img {
+    width: 100%;
+    height: 100%;
+    
+  }
+
+  .content-text {
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Asegura que el texto esté por encima del fondo */
+    width: 80%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+
+   .ordenado {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  scroll-behavior: smooth;
+  width: 95vw;
+  
+}
+
+
+.lista {
+padding: 7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.repar {
+padding: 0px;
+box-shadow: 0px 0px 10px #FF1B6B;
+width: 96px; /* Tamaño deseado */
+  height: 132px; /* Tamaño deseado */
+  object-fit: cover; 
+  scroll-snap-align: start;
+  margin-bottom: 5px;
+  
+}
+
+.infox {
+  text-align: center;
+  font-size: 11px;
+  
+}
+ 
+h5{
+    font-size: 16px;
+      margin-top: 20px;
+        margin-bottom: 0px;
+        padding-left: 5px;
+        margin-left: 5px;
+        padding: 5px;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        color : white;
+        text-shadow: black 0.1em 0.1em 0.2em;
+            
+}
+
+</style>
+</head>
+<body>
+<div class="container" id="container">
+  <div class="content" id="content">
+    <div>
+      <img src="https://media.themoviedb.org/t/p/w1000_and_h563_face/4Qj1qSBGjHKMEtKNfMM5Wqrpj9F.jpg" alt="Imagen 1">
+      <div class="content-text">
+        <!-- Contenido delante de la imagen de fondo -->
+        <h2>Información sobre la imagen 1</h2>
+      </div>
+    </div>
+    <div>
+      <img src="https://media.themoviedb.org/t/p/w1000_and_h563_face/l9b5HXzKeV6UAezLgg9Hhe5tAPg.jpg" alt="Imagen 2">
+      <div class="content-text">
+        <!-- Contenido delante de la imagen de fondo -->
+        <h2>Información sobre la imagen 2</h2>
+      </div>
+    </div>
+    <!-- Agrega más divs .content si necesitas más imágenes -->
+  </div>
+</div>
+
+   <h5>Reparto</h5><ul class="ordenado">
+            <li class="lista">
+              <img class="repar" src="https://media.themoviedb.org/t/p/w440_and_h660_face/6o5cJjA4srfvU52UKWaqPUuPPgl.jpg">
+              <div class="infox">
+             <b>Keri Hilson</b>
+            <p>Tiffanie</p>
+              </div>
+             
+            </li>
+            
+                     
+          
+            <li class="lista">
+              <img class="repar" src="https://media.themoviedb.org/t/p/w440_and_h660_face/fIUqk6Pjo3uf5RiOGT19KQ53ekq.jpg">
+              <div class="infox">
+             <b>Tobias Truvillion</b>
+            <p>Damon King</p>
+              </div>
+             
+            </li>
+            
+                     
+          
+            <li class="lista">
+              <img class="repar" src="https://media.themoviedb.org/t/p/w440_and_h660_face/zuSAZIG1PSrxFwPeAlGtg9LTwxo.jpg">
+              <div class="infox">
+             <b>Tank</b>
+            <p>Trey</p>
+              </div>
+             
+            </li>
+            
+                     
+          
+            <li class="lista">
+              <img class="repar" src="https://image.tmdb.org/t/p/w185/yn1fqUSHSRFjp9GFCKZSVdkU361.jpg">
+              <div class="infox">
+             <b>LeToya Luckett</b>
+            <p></p>
+              </div>
+             
+            </li>
+            
+                     
+          
+            <li class="lista">
+              <img class="repar" src="https://image.tmdb.org/t/p/w185/pYy8kJo4gHHny7BYP7AVxSl6POy.jpg">
+              <div class="infox">
+             <b>Teresa Celeste</b>
+            <p>Kayla</p>
+              </div>
+             
+            </li>
+            
+                     
+          
+            <li class="lista">
+              <img class="repar" src="https://image.tmdb.org/t/p/w185/5Va99Xe2pjip0GD3ynBNTpdMuVd.jpg">
+              <div class="infox">
+             <b>Michael Anthony</b>
+            <p>Magic</p>
+              </div>
+             
+            </li>
+            
+                     
+          
+            <li class="lista">
+              <img class="repar" src="https://image.tmdb.org/t/p/w185/rzgz7iTdheCnD0pXLinkZeD8G8Z.jpg">
+              <div class="infox">
+             <b>Brandon Sutton</b>
+            <p>Eric Thompson</p>
+              </div>
+             
+            </li>
+            
+                     
+          
+            <li class="lista">
+              <img class="repar" src="https://image.tmdb.org/t/p/w185/e1ET1EPJZlm5p3KXKA7BdvGtEy2.jpg">
+              <div class="infox">
+             <b>Tobias Truvillion</b>
+            <p></p>
+              </div>
+             
+            </li>
+            
+                     
+          
+            <li class="lista">
+              <img class="repar" src="https://image.tmdb.org/t/p/w185/2dWWXORFVy2GE5suhNtLCbqobJZ.jpg">
+              <div class="infox">
+             <b>Hosea Chanchez</b>
+            <p>Justus</p>
+              </div>
+             
+            </li>
+            
+                     
+          
+            <li class="lista">
+              <img class="repar" src="https://image.tmdb.org/t/p/w185/i1sYbBCIGjoWEASNdzqlroDduue.jpg">
+              <div class="infox">
+             <b>Chris Whitley</b>
+            <p>Warner</p>
+              </div>
+             
+            </li>
+            
+                     
+          
+            <li class="lista">
+              <img class="repar" src="https://image.tmdb.org/t/p/w185/qqT7MEwbeurpRg0ywCXfq6mecEb.jpg">
+              <div class="infox">
+             <b>Perri Camper</b>
+            <p>Sonia</p>
+              </div>
+             
+            </li>
+            
+                     
+          
+            <li class="lista">
+              <img class="repar" src="https://image.tmdb.org/t/p/w185/9wGVqDcrjpZnwjlnwB45LMbsJSj.jpg">
+              <div class="infox">
+             <b>Clifton Powell</b>
+            <p></p>
+              </div>
+             
+            </li>
+            
+                     
+          </ul>
+</div>
+<script>
+  const container = document.getElementById('container');
+  const content = document.getElementById('content');
+  let startX = 0;
+  let endX = 0;
+  let currentIndex = 0;
+
+  function moveContent() {
+    currentIndex++;
+    if (currentIndex >= content.children.length) {
+      currentIndex = 0;
+    }
+
+    const newPosition = currentIndex * -100;
+    content.style.left = `${newPosition}%`;
+  }
+
+  setInterval(moveContent, 8000);
+
+  content.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  content.addEventListener('touchmove', (e) => {
+    endX = e.touches[0].clientX;
+  });
+
+  content.addEventListener('touchend', () => {
+    handleGesture();
+  });
+
+  function handleGesture() {
+    const threshold = 50;
+
+    if (startX - endX > threshold) {
+      currentIndex++;
+    } else if (endX - startX > threshold) {
+      currentIndex--;
+    }
+
+    if (currentIndex < 0) {
+      currentIndex = 0;
+    } else if (currentIndex >= content.children.length) {
+      currentIndex = content.children.length - 1;
+    }
+
+    const newPosition = currentIndex * -100;
+    content.style.left = `${newPosition}%`;
+  }
+</script>
+</body>
+</html>
