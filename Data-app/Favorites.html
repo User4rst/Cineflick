@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favoritos</title>
+</head>
+<body>
+    <h1>Favoritos</h1>
+    <div id="favoritesList"></div>
+
+    <script>
+        async function handlePostRequest(event) {
+            event.respondWith(
+                (async () => {
+                    const data = await event.request.json();
+                    const favoritesList = document.getElementById('favoritesList');
+                    const newItem = document.createElement('div');
+                    newItem.innerHTML = `<p>URL: ${data.url}</p><p>Imagen Alt: ${data.imgAlt}</p>`;
+                    favoritesList.appendChild(newItem);
+                    return new Response(JSON.stringify({ status: 'success' }), { status: 200 });
+                })()
+            );
+        }
+
+        self.addEventListener('fetch', handlePostRequest);
+    </script>
+</body>
+</html>
