@@ -145,7 +145,7 @@ h5{
 </div>
 
    <h5>Reparto</h5><ul class="ordenado">
-            <li class="lista">
+            <li class="lista" onclick="redirectToURL('https://github.com/User4rst/Cineflick/blob/main/Data-app/Favorites.html')">
               <img class="repar" src="https://media.themoviedb.org/t/p/w440_and_h660_face/6o5cJjA4srfvU52UKWaqPUuPPgl.jpg">
               <div class="infox">
              <b>Keri Hilson</b>
@@ -327,6 +327,10 @@ h5{
     const newPosition = currentIndex * -100;
     content.style.left = `${newPosition}%`;
   }
+
+     function redirectToURL(url) {
+      window.location.href = url;
+    }
 </script>
 </body>
 </html>
